@@ -14,7 +14,7 @@ def get_file_urls(folder_path=""):
     # Base URL for raw file access
     base_url = 'https://raw.githubusercontent.com'
 
-    # Get a list of all files in the repository
+    # Get a list of all files in the repository with .png, .jpg, or .jpeg extensions
     files = []
     contents = repo.get_contents(folder_path)
     while contents:
@@ -22,7 +22,9 @@ def get_file_urls(folder_path=""):
         if file_content.type == "dir":
             contents.extend(repo.get_contents(file_content.path))
         else:
-            files.append(file_content)
+            file_ext = os.path.splitext(file_content.name)[1]
+            if file_ext in ['.png', '.jpg', '.jpeg']:
+                files.append(file_content)
 
     # Create a folder-specific log file
     log_file_name = os.path.basename(folder_path) + '_file_log.txt'

@@ -28,7 +28,7 @@ def postInstagramImage(folder=""):
 
         # Read hashtags from file
         if folder != "diffusion_art":
-            hardcoded_hashtags = ['#art', '#landscapeart', '#vangogh', '#monet', '#manet', '#cezanne',
+            hardcoded_hashtags = ['#art', '#nightart', '#landscapeart', '#vangogh', '#monet', '#manet', '#cezanne',
                                   '#stablediffusion', '#midjourney', '#ai', '#aiart', '#artist', '#artoftheday',
                                   '#artoninstagram', '#artscape', '#galleryart', '#famousart', '#artcollector',
                                   '#artcollective', '#oilpainting']
@@ -75,6 +75,8 @@ def postInstagramImage(folder=""):
 
         result = json.loads(r.text)
 
+        print(result)
+
         if 'id' in result:
             creation_id = result['id']
             second_url = f'https://graph.facebook.com/v10.0/17841407988148701/media_publish?&appsecret_proof={appsecret_proof}'
@@ -84,5 +86,6 @@ def postInstagramImage(folder=""):
             }
 
             r = requests.post(second_url, data=second_payload)
+            print(r.text)
         else:
             print('Error')
