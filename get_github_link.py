@@ -33,7 +33,8 @@ def get_file_urls(folder_path=""):
     # Filter out file URLs that have already been returned
     if os.path.exists(log_file_path):
         with open(log_file_path, 'r') as f:
-            log_urls = f.read().splitlines()
+            log_lines = f.read().splitlines()
+        log_urls = [line.split('\t')[0] for line in log_lines]
         files = [file for file in files if f"{base_url}/{config.REPO_NAME}/main/{file.path}" not in log_urls]
 
     # Generate a random file URL from the remaining file URLs

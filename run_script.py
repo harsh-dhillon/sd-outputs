@@ -6,6 +6,8 @@ from post_image import postInstagramImage
 def run_script():
     postInstagramImage("gloaming")
 
+postInstagramImage("gloaming")
+
 # schedule the post_image function to run every 1 hour
 schedule.every(1).hour.do(run_script)
 
