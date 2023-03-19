@@ -11,11 +11,12 @@ import get_github_link
 
 
 def postInstagramImage(folder=""):
-    # Get the Image
-    image_location = get_github_link.get_file_urls(folder)
 
     if folder == "":
         folder = "diffusion_art"
+
+    # Get the Image
+    image_location = get_github_link.get_file_urls(folder)
 
     if image_location:
         appsecret_proof = hmac.new(
