@@ -74,11 +74,8 @@ def postInstagramImage(folder=""):
         }
 
         r = requests.post(post_url, data=payload)
-        print(r.text)
 
         result = json.loads(r.text)
-
-        print(result)
 
         if 'id' in result:
             creation_id = result['id']
