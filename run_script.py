@@ -4,9 +4,9 @@ from post_image import postInstagramImage
 
 # Define the function to be scheduled
 def run_script():
-    postInstagramImage("Hazy_Sunrise")
+    postInstagramImage("Chroma_Portraits")
 
-postInstagramImage("Hazy_Sunrise")
+postInstagramImage("Chroma_Portrait")
 # schedule the post_image function to run every 1 hour
 schedule.every(1).hour.do(run_script)
 

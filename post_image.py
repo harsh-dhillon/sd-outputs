@@ -29,10 +29,10 @@ def postInstagramImage(folder=""):
 
         # Read hashtags from file
         hardcoded_hashtags = [
-            '#art', '#artist', '#artwork', '#arte', '#artoftheday', '#artistic', '#acrylicpainting', '#artofvisuals',
-            '#artistsoninstagram', '#watercolor', '#instadaily', '#beautiful',
-            '#digitalart', '#illustration', '#oilpainting', '#painting', '#contemporaryart', '#procreate',
-            '#stablediffusion', '#aiart', '#midjourney', '#aiartcommunity',
+            '#art', '#artist', '#artwork', '#portrait', '#artoftheday', '#artistic', '#acrylicpainting', '#artofvisuals',
+            '#artistsoninstagram', '#pastels', '#instadaily', '#beautiful',
+            '#digitalart', '#illustration', '#oilpainting', '#painting', '#contemporaryart', '#sketch',
+            '#stablediffusion', '#aiart', '#midjourney', '#graphicdesign',
             '#creative', '#artgallery', '#artlovers'
         ]
 
