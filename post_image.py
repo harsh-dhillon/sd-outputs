@@ -32,7 +32,7 @@ def postInstagramImage(folder=""):
             '#art', '#artist', '#artwork', '#portrait', '#artoftheday', '#artistic', '#acrylicpainting', '#artofvisuals',
             '#artistsoninstagram', '#pastels', '#instadaily', '#beautiful',
             '#digitalart', '#illustration', '#oilpainting', '#painting', '#contemporaryart', '#sketch',
-            '#stablediffusion', '#aiart', '#midjourney', '#graphicdesign',
+            '#stablediffusion', '#fauvism', '#midjourney', '#graphicdesign',
             '#creative', '#artgallery', '#artlovers'
         ]
 
