@@ -11,7 +11,6 @@ import get_github_link
 
 
 def postInstagramImage(folder=""):
-
     if folder == "":
         folder = "diffusion_art"
 
@@ -29,11 +28,12 @@ def postInstagramImage(folder=""):
 
         # Read hashtags from file
         hardcoded_hashtags = [
-            '#art', '#artist', '#artwork', '#portrait', '#artoftheday', '#artistic', '#acrylicpainting', '#artofvisuals',
+            '#art', '#artist', '#artwork', '#portrait', '#artoftheday', '#oilpasteldrawing', '#portraitphotography',
+            '#artofvisuals',
             '#artistsoninstagram', '#pastels', '#instadaily', '#beautiful',
-            '#digitalart', '#illustration', '#oilpainting', '#painting', '#contemporaryart', '#sketch',
-            '#stablediffusion', '#fauvism', '#midjourney', '#graphicdesign',
-            '#creative', '#artgallery', '#artlovers'
+            '#contemporarydrawing', '#illustration', '#oilpainting', '#pastelpainting', '#contemporaryart', '#sketch',
+            '#illustration', '#fashion', '#beauty', '#graphicdesign',
+            '#stablediffusion', '#artgallery', '#pasteldrawing'
         ]
 
         if folder != "diffusion_art":
