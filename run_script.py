@@ -10,7 +10,7 @@ def run_script():
 postInstagramImage("Pastel_Portrait")
 
 # schedule the post_image function to run every 1 hour
-schedule.every(3).hour.do(run_script)
+schedule.every(3).hours.do(run_script)
 
 while True:
     # run the scheduled tasks
