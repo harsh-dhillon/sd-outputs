@@ -11,11 +11,8 @@ import get_github_link
 
 
 def postInstagramImage(folder=None):
-    if folder is None:
-        folder = "diffusion_art"
-
     # Get the Image
-    image_location = get_github_link.get_file_urls(folder)
+    image_location, folder = get_github_link.get_file_urls()
 
     if image_location:
         appsecret_proof = hmac.new(
@@ -29,15 +26,12 @@ def postInstagramImage(folder=None):
         # Read hashtags from file
         hardcoded_hashtags = [
             '#aiartcommunity', '#galleryart', '#wallart', '#torontoartist', '#artoftheday', '#art_dailydose', '#art_viral',
-            '#aiart',
-            '#midjourney', '#stablediffusion'
+            '#aiart', '#art', '#beautiful', '#artwork', '#artgallery', '#graphicdesign', '#artlovers', '#artistic', '#artofvisuals'
+            '#midjourney', '#stablediffusion', '#painting', '#artistoninstagram'
         ]
 
         # Get hashtags from folder
-        if folder != "diffusion_art":
-            hashtags_file = os.path.join(folder, 'hashtags.txt')
-        else:
-            hashtags_file = os.path.join(config.ROOT_FOLDER, 'hashtags.txt')
+        hashtags_file = os.path.join(folder, 'hashtags.txt')
         if os.path.exists(hashtags_file):
             with open(hashtags_file, 'r') as f:
                 all_hashtags = f.read().strip().split(',')
@@ -46,16 +40,16 @@ def postInstagramImage(folder=None):
 
         all_hashtags = [h.strip() for h in all_hashtags]
 
-        # Use 10 hardcoded hashtags and randomly select up to 19 more from folder
+        # Use 10 hardcoded hashtags and randomly select up to 10 more from folder
         remaining_hashtags = list(set(all_hashtags) - set(hardcoded_hashtags))
-        num_selected = min(len(remaining_hashtags), 19)
+        num_selected = min(len(remaining_hashtags), 10)
         selected_hashtags = random.sample(remaining_hashtags, k=num_selected) + hardcoded_hashtags
 
         # Shuffle the hashtags randomly
         random.shuffle(selected_hashtags)
 
         # Add hashtags to the caption, limiting the total number to 29
-        hashtag_string = ' '.join(selected_hashtags[:29])
+        hashtag_string = ' '.join(selected_hashtags[:30])
 
         # Generate the caption with folder name and count
         folder_title = ' '.join([word.capitalize() for word in folder.split('_')]).replace('_', '')
