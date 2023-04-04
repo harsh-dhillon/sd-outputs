@@ -58,7 +58,7 @@ def postInstagramImage(folder=None):
         if os.path.exists(log_file_path):
             with open(log_file_path, 'r') as f:
                 count = len(f.readlines())
-            caption = f"{folder_title} Series, W.{count} \n-\n-\n-\n-\n-\n-\n{hashtag_string}".title()
+            caption = f"{folder_title}, W.{count} \n-\n-\n-\n-\n-\n-\n{hashtag_string}".title()
         else:
             with open(log_file_path, 'r') as f:
                 count = len(f.readlines())
