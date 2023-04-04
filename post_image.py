@@ -28,9 +28,9 @@ def postInstagramImage(folder=None):
 
         # Read hashtags from file
         hardcoded_hashtags = [
-            '#art', '#artist', '#artwork', '#stablediffusion', '#artoftheday', '#art_dailydose', '#art_viral',
+            '#art', '#artist', '#artwork', '#landscapes', '#artoftheday', '#art_dailydose', '#art_viral',
             '#aiart',
-            '#artistsoninstagram', '#midjourney'
+            '#midjourney', '#stablediffusion'
         ]
 
         # Get hashtags from folder
@@ -46,15 +46,18 @@ def postInstagramImage(folder=None):
 
         all_hashtags = [h.strip() for h in all_hashtags]
 
-        # Use 10 hardcoded hashtags and randomly select 20 more from folder
+        # Use 10 hardcoded hashtags and randomly select up to 19 more from folder
         remaining_hashtags = list(set(all_hashtags) - set(hardcoded_hashtags))
-        selected_hashtags = random.sample(hardcoded_hashtags + remaining_hashtags, k=30)
+        num_selected = min(len(remaining_hashtags), 19)
+        selected_hashtags = random.sample(remaining_hashtags, k=num_selected) + hardcoded_hashtags
 
         # Shuffle the hashtags randomly
         random.shuffle(selected_hashtags)
 
-        # Add hashtags to the caption
-        hashtag_string = ' '.join(selected_hashtags)
+        # Add hashtags to the caption, limiting the total number to 29
+        hashtag_string = ' '.join(selected_hashtags[:29])
+
+        print(hashtag_string)
 
         # Generate the caption with folder name and count
         folder_title = ' '.join([word.capitalize() for word in folder.split('_')]).replace('_', '')
@@ -90,4 +93,4 @@ def postInstagramImage(folder=None):
             r = requests.post(second_url, data=second_payload)
             print(r.text)
         else:
-            print('Error')
+            print(r.text)
