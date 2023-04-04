@@ -28,7 +28,7 @@ def postInstagramImage(folder=None):
 
         # Read hashtags from file
         hardcoded_hashtags = [
-            '#art', '#artist', '#artwork', '#landscapes', '#artoftheday', '#art_dailydose', '#art_viral',
+            '#aiartcommunity', '#galleryart', '#wallart', '#torontoartist', '#artoftheday', '#art_dailydose', '#art_viral',
             '#aiart',
             '#midjourney', '#stablediffusion'
         ]
@@ -56,8 +56,6 @@ def postInstagramImage(folder=None):
 
         # Add hashtags to the caption, limiting the total number to 29
         hashtag_string = ' '.join(selected_hashtags[:29])
-
-        print(hashtag_string)
 
         # Generate the caption with folder name and count
         folder_title = ' '.join([word.capitalize() for word in folder.split('_')]).replace('_', '')

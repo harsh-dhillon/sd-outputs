@@ -1,19 +1,22 @@
 import schedule
 import time
+from datetime import datetime, timedelta
 from post_image import postInstagramImage
 
-postInstagramImage("Azure_Dreamscapes")
 
 # Define the function to be scheduled
 def run_script():
     postInstagramImage("Azure_Dreamscapes")
 
+# Schedule the first job at 7:30 AM
+schedule.every().day.at("07:30").do(run_script)
 
-start_time = "07:30"
-end_time = "20:30"
+# Schedule subsequent jobs every hour from 7:30 AM to 8:30 PM
+next_hour = datetime.strptime("07:30", "%H:%M") + timedelta(hours=1)
+while next_hour.strftime("%H:%M") <= "20:30":
+    schedule.every().day.at(next_hour.strftime("%H:%M")).do(run_script)
+    next_hour += timedelta(hours=1)
 
 while True:
-    current_time = time.strftime("%H:%M")
-    if current_time >= start_time and current_time <= end_time:
-        schedule.every().hour.at(":00").do(run_script)
+    schedule.run_pending()
     time.sleep(60)
