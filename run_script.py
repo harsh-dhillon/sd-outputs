@@ -2,19 +2,18 @@ import schedule
 import time
 from post_image import postInstagramImage
 
+postInstagramImage("Azure_Dreamscapes")
+
 # Define the function to be scheduled
 def run_script():
-    postInstagramImage("Pastel_Portrait")
+    postInstagramImage("Azure_Dreamscapes")
 
 
-postInstagramImage("Pastel_Portrait")
-
-# schedule the post_image function to run every 1 hour
-schedule.every(3).hours.do(run_script)
+start_time = "07:30"
+end_time = "20:30"
 
 while True:
-    # run the scheduled tasks
-    schedule.run_pending()
-
-    # wait for 1 second
-    time.sleep(1)
+    current_time = time.strftime("%H:%M")
+    if current_time >= start_time and current_time <= end_time:
+        schedule.every().hour.at(":00").do(run_script)
+    time.sleep(60)

@@ -10,8 +10,8 @@ import config
 import get_github_link
 
 
-def postInstagramImage(folder=""):
-    if folder == "":
+def postInstagramImage(folder=None):
+    if folder is None:
         folder = "diffusion_art"
 
     # Get the Image
@@ -28,28 +28,30 @@ def postInstagramImage(folder=""):
 
         # Read hashtags from file
         hardcoded_hashtags = [
-            '#art', '#artist', '#artwork', '#portrait', '#artoftheday', '#oilpasteldrawing', '#portraitphotography',
-            '#artofvisuals',
-            '#artistsoninstagram', '#pastels', '#instadaily', '#beautiful',
-            '#contemporarydrawing', '#illustration', '#oilpainting', '#pastelpainting', '#contemporaryart', '#sketch',
-            '#illustration', '#fashion', '#beauty', '#graphicdesign',
-            '#stablediffusion', '#artgallery', '#pasteldrawing'
+            '#art', '#artist', '#artwork', '#stablediffusion', '#artoftheday', '#art_dailydose', '#art_viral',
+            '#aiart',
+            '#artistsoninstagram', '#midjourney'
         ]
 
+        # Get hashtags from folder
         if folder != "diffusion_art":
-            with open(os.path.join(config.ROOT_FOLDER, 'hashtags.txt'), 'r') as f:
+            hashtags_file = os.path.join(folder, 'hashtags.txt')
+        else:
+            hashtags_file = os.path.join(config.ROOT_FOLDER, 'hashtags.txt')
+        if os.path.exists(hashtags_file):
+            with open(hashtags_file, 'r') as f:
                 all_hashtags = f.read().strip().split(',')
         else:
-            with open(os.path.join(folder, 'hashtags.txt'), 'r') as f:
-                all_hashtags = f.read().strip().split(',')
+            all_hashtags = []
 
         all_hashtags = [h.strip() for h in all_hashtags]
-        remaining_hashtags = list(set(all_hashtags) - set(hardcoded_hashtags))
 
-        if len(remaining_hashtags) >= 5:
-            selected_hashtags = hardcoded_hashtags + random.sample(remaining_hashtags, k=5)
-        else:
-            selected_hashtags = hardcoded_hashtags + remaining_hashtags
+        # Use 10 hardcoded hashtags and randomly select 20 more from folder
+        remaining_hashtags = list(set(all_hashtags) - set(hardcoded_hashtags))
+        selected_hashtags = random.sample(hardcoded_hashtags + remaining_hashtags, k=30)
+
+        # Shuffle the hashtags randomly
+        random.shuffle(selected_hashtags)
 
         # Add hashtags to the caption
         hashtag_string = ' '.join(selected_hashtags)
