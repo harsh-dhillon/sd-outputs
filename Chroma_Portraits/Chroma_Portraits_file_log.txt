@@ -48,3 +48,6 @@ https://raw.githubusercontent.com/harsh-dhillon/sd-outputs/main/Chroma_Portraits
 https://raw.githubusercontent.com/harsh-dhillon/sd-outputs/main/Chroma_Portraits/01307-935184547.png	2023-04-04 21:27:43
 https://raw.githubusercontent.com/harsh-dhillon/sd-outputs/main/Chroma_Portraits/01062-1561383089.png	2023-04-05 03:28:39
 https://raw.githubusercontent.com/harsh-dhillon/sd-outputs/main/Chroma_Portraits/00143-471143773.png	2023-04-05 05:28:56
+https://raw.githubusercontent.com/harsh-dhillon/sd-outputs/main/Chroma_Portraits/01525-1445598419.png	2023-04-05 16:30:09
+https://raw.githubusercontent.com/harsh-dhillon/sd-outputs/main/Chroma_Portraits/01281-935184534.png	2023-04-05 19:30:42
+https://raw.githubusercontent.com/harsh-dhillon/sd-outputs/main/Chroma_Portraits/01243-3395716551.png	2023-04-05 22:31:20
